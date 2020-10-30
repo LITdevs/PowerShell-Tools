@@ -1,5 +1,6 @@
 ﻿ param (
-    [string]$basepath = 'D:\Git\salad-applications\packages',
+    # CHANGE THE BELOW VALUE TO THE PATH TO YOUR SALAD PACKAGES FOLDER (Example: D:\Git\salad-applications\packages)
+    [string]$basepath = '',
     # MODIFY VARIABLES ABOVE TO CUSTOMIZE DEFAULTS!!! DO NOT MODIFY THINGS BELOW #
     [switch]$yarn = $false,
     [switch]$yarnall = $false,
