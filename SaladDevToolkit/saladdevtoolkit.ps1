@@ -20,6 +20,10 @@ function Check-Command($cmdname)
 
 # Initial prepping
 Write-Output "Salad Dev Toolkit by Vukky Limited - version $version"
+if ($basepath -eq '') {
+    Write-Error 'Please set your base path in the source code, on line 3.'
+    exit
+}
 if (Check-Command -cmdname 'yarn') { } else {
     Write-Error 'Building tools not installed.'
     exit
