@@ -12,7 +12,7 @@
     [switch]$lesslogs = $false
  )
 
-$version = "0.4.0 (alpha)"
+$version = "0.4.1 (alpha)"
 function Check-Command($cmdname)
 {
     return [bool](Get-Command -Name $cmdname -ErrorAction SilentlyContinue)
@@ -31,7 +31,7 @@ if (Check-Command -cmdname 'yarn') { } else {
 
 # Updating git repos
 if($lesslogs -eq $false) {Write-Host 'Task 1 - Updating files and forks with git...'}
-if($gitpull -eq $true -and $gitfork -eq $true) {
+if($gitpull -eq $true -or $gitfork -eq $true) {
     if(Check-Command -cmdname 'git') { 
         pushd $basepath
         if ($gitpull -eq $true) {
