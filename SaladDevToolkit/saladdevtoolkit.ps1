@@ -12,7 +12,7 @@
     [switch]$lesslogs = $false
  )
 
-$version = "0.4.1 (alpha)"
+$version = "0.4.2 (alpha)"
 function Check-Command($cmdname)
 {
     return [bool](Get-Command -Name $cmdname -ErrorAction SilentlyContinue)
@@ -30,7 +30,7 @@ if (Check-Command -cmdname 'yarn') { } else {
 }
 
 # Updating git repos
-if($lesslogs -eq $false) {Write-Host 'Task 1 - Updating files and forks with git...'}
+if($lesslogs -eq $false) {Write-Host 'Updating files and forks with git...'}
 if($gitpull -eq $true -or $gitfork -eq $true) {
     if(Check-Command -cmdname 'git') { 
         pushd $basepath
@@ -50,7 +50,7 @@ if($gitpull -eq $true -or $gitfork -eq $true) {
 }
 
 # Building
-if($lesslogs -eq $false) {Write-Host "Task 2 - Building in $basepath."}
+if($lesslogs -eq $false) {Write-Host "Building in $basepath."}
 if ($yarnall -eq $true) {
     pushd $basepath/web-app
     yarn install
