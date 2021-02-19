@@ -14,7 +14,6 @@ Function pause ($message)
 }
 
 Clear-Host
-$ProgressPreference = "SilentlyContinue"
 Write-Host "Minecraft: Education Edition - PowerShell Installer"
 Write-Host "Vukky Limited is not responsible for any damages to your computer caused by this installer."
 $InstallType = Read-Host -Prompt "Install, Update, or Uninstall"
@@ -26,7 +25,7 @@ if ($InstallType -ne "Install" -And $InstallType -ne "Update" -And $InstallType 
 try { 
   Clear-Host
   if ($InstallType -eq "Install" -Or $InstallType -eq "Update") {
-    pause "Alert! If you will be using the iPads, make sure the iPads are on the same version as the latest MC:EDU version before continuing. Press any key to continue."
+    pause "Alert! If you will be playing with other devices, make sure they're on the latest MC:EDU version, or you won't be able to connect to them. `nPress any key to continue."
   }
   Clear-Host
   if ($InstallType -eq "Install") {
