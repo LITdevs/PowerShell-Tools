@@ -17,7 +17,7 @@
 
 `-yarn` (runs yarn install first [for the app you specified](#required-for-building))
 
-`-gitpull` (runs yarn install for all the apps)
+`-yarnall` (runs yarn install for all the apps)
 
 `-gitpull` (runs git pull)
 
