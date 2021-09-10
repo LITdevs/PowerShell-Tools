@@ -15,7 +15,7 @@ Function pause ($message)
 
 Clear-Host
 Write-Host "Welcome to the Minecraft: Education Edition installer!"
-$InstallType = Read-Host -Prompt "Do you want to install, update, or uninstall the game?"
+$InstallType = Read-Host -Prompt "Do you want to install, update, or uninstall the game?`nType Install, Update, or Uninstall"
 if ($InstallType -ne "Install" -And $InstallType -ne "Update" -And $InstallType -ne "Uninstall") {
     Write-Host "$InstallType is not Install, Update, or Uninstall."
     $InstallType = "Install"
