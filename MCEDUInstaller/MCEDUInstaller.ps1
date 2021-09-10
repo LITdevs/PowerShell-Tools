@@ -47,7 +47,7 @@ try {
       Write-Host "Minecraft: Education Edition" $MCEE.Version " has been installed!"
   }
   if ($InstallType -eq "Uninstall") {
-    Write-Host "Minecraft: Education Edition" $MCEE.Version "has been uninstalled. `nYour Minecraft: Education Edition data has been removed from this device."
+    Write-Host "Minecraft: Education Edition" $MCEE.Version "has been uninstalled."
   }
   pause "Press any key to exit."
 }
