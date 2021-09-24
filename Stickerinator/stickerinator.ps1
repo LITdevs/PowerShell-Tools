@@ -1,7 +1,7 @@
-param ($i, $o, [switch] $keepgif = $false)
+param ($i, $o, [switch] $keepgif = $false, $lossy = "200", $width = "320")
 $i = "$i.gif"
 
-$version = "0.1.0 (alpha)"
+$version = "0.2.0 (alpha)"
 function Check-Command($cmdname)
 {
     return [bool](Get-Command -Name $cmdname -ErrorAction SilentlyContinue)
@@ -24,9 +24,9 @@ $imagedata = [System.Drawing.Image]::FromFile("$poop\$i")
 $currentwip = $o.gif # store the file name of the latest modified gif so we don't touch older ones
 
 # resize the gif
-if ($imagedata.width -gt 320) {
-    Write-Output "Resizing $i to 320px"
-    gifsicle $i --resize-width 320 -o stickerinatorresized$o.gif
+if ($imagedata.width -gt 320 -or $width -ne 320) {
+    Write-Output "Resizing $i to $width pixels in width"
+    gifsicle $i --resize-width $width -o stickerinatorresized$o.gif
     $currentwip = "stickerinatorresized$o.gif"
 }
 
@@ -51,7 +51,7 @@ ForEach ($line in gifsicle --info .\$currentwip) {
 # compress the gif
 if ((Get-Item .\$currentwip).length / 1kb -gt 500) {
     Write-Output "Compressing $i"
-    gifsicle $currentwip -O3 --lossy=200 -o stickerinatorcompressed$o.gif
+    gifsicle $currentwip -O3 --lossy=$lossy -o stickerinatorcompressed$o.gif
     $currentwip = "stickerinatorcompressed$o.gif"
 }
 

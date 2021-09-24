@@ -21,7 +21,13 @@ No file extensions are required, as the Stickerinator can only create APNGs from
 ./stickerinator.ps1 -i <input_file> -o <output_file>
 ```
 
+### Optional parameters
+
 If you want the Stickerinator to keep the GIF instead of the APNG if the file size requirement is not met, you can use the `-keepgif` parameter.
+
+You can set the width of the outputted APNG like this: `-width 256`. By default, this is set to `320`.
+
+You can set the lossy compression levels like this: `-lossy 125`. By default, this is set to `200` (maximum compression). This only takes effect if Gifsicle decides that lossy compression would be optimal.
 
 ### Dependencies
 
