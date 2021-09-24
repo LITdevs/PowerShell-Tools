@@ -1,7 +1,7 @@
 param ($i, $o, [switch] $keepgif = $false, $lossy = "200", $width = "320")
 $i = "$i.gif"
 
-$version = "0.2.1 (alpha)"
+$version = "0.2.2 (alpha)"
 function Check-Command($cmdname)
 {
     return [bool](Get-Command -Name $cmdname -ErrorAction SilentlyContinue)
@@ -21,7 +21,7 @@ if (Check-Command -cmdname 'gif2apng') { } else {
 Write-Output ''
 $poop = $pwd.Path
 $imagedata = [System.Drawing.Image]::FromFile("$poop\$i")
-$currentwip = $o.gif # store the file name of the latest modified gif so we don't touch older ones
+$currentwip = $i # store the file name of the latest modified gif so we don't touch older ones
 
 # resize the gif
 if ($imagedata.width -gt 320 -or $width -ne 320) {
