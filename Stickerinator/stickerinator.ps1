@@ -1,7 +1,7 @@
 param ($i, $o, [switch] $keepgif = $false, $lossy = "200", $width = "320")
 $i = "$i.gif"
 
-$version = "0.2.0 (alpha)"
+$version = "0.2.1 (alpha)"
 function Check-Command($cmdname)
 {
     return [bool](Get-Command -Name $cmdname -ErrorAction SilentlyContinue)
@@ -12,8 +12,8 @@ if (Check-Command -cmdname 'gifsicle') { } else {
     Write-Error 'Please make sure you have gifsicle in your PATH.'
     exit
 }
-if (Check-Command -cmdname 'ffmpeg') { } else {
-    Write-Error 'Please make sure you have ffmpeg in your PATH.'
+if (Check-Command -cmdname 'gif2apng') { } else {
+    Write-Error 'Please make sure you have gif2apng in your PATH.'
     exit
 }
 

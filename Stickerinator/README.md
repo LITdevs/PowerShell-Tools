@@ -31,4 +31,4 @@ You can set the lossy compression levels like this: `-lossy 125`. By default, th
 
 ### Dependencies
 
-The Stickerinator requires [Gifsicle](http://www.lcdf.org/gifsicle/), [ffmpeg](https://www.ffmpeg.org/download.html), and [gif2apng CLI](https://sourceforge.net/projects/gif2apng/files/) to be in PATH.
+The Stickerinator requires [Gifsicle](http://www.lcdf.org/gifsicle/) and [gif2apng CLI](https://sourceforge.net/projects/gif2apng/files/) to be in PATH.
