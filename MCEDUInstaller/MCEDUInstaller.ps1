@@ -15,7 +15,6 @@ Function pause ($message)
 
 Clear-Host
 Write-Host "Welcome to the unofficial Minecraft: Education Edition installer!"
-Write-Host "Please note that this installer is deprecated."
 Write-Host "(c) LIT Devs 2021`n`n"
 $InstallType = Read-Host -Prompt "Do you want to install, update, or uninstall the game?`nType Install, Update, or Uninstall"
 if ($InstallType -ne "Install" -And $InstallType -ne "Update" -And $InstallType -ne "Uninstall") {
