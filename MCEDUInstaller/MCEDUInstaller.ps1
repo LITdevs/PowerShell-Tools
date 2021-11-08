@@ -18,7 +18,7 @@ Function pause ($message)
 
 Clear-Host
 Write-Host "Welcome to the unofficial Minecraft: Education Edition installer!"
-Write-Host "(c) LIT Devs 2021`n`n"
+Write-Host "(c) LIT Devs 2021`n"
 if ($InstallType -eq "") {
     $InstallType = Read-Host -Prompt "Do you want to install, update, or uninstall the game?`nType Install, Update, or Uninstall"
 }
