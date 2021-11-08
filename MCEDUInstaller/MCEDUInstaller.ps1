@@ -1,5 +1,5 @@
 param (
-    [string]$InstallType = '',
+    [string]$InstallType = ''
 )
 Function pause ($message)
 {
