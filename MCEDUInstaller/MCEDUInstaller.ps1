@@ -1,3 +1,6 @@
+param (
+    [string]$InstallType = '',
+)
 Function pause ($message)
 {
     # Check if running Powershell ISE
@@ -16,7 +19,9 @@ Function pause ($message)
 Clear-Host
 Write-Host "Welcome to the unofficial Minecraft: Education Edition installer!"
 Write-Host "(c) LIT Devs 2021`n`n"
-$InstallType = Read-Host -Prompt "Do you want to install, update, or uninstall the game?`nType Install, Update, or Uninstall"
+if ($InstallType -eq "") {
+    $InstallType = Read-Host -Prompt "Do you want to install, update, or uninstall the game?`nType Install, Update, or Uninstall"
+}
 if ($InstallType -ne "Install" -And $InstallType -ne "Update" -And $InstallType -ne "Uninstall") {
     Write-Host "$InstallType is not Install, Update, or Uninstall."
     $InstallType = "Install"
