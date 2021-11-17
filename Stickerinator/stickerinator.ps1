@@ -1,7 +1,7 @@
 param ($i, $o, [switch] $keepgif = $false, $lossy = "200", $width = "320")
 $i = "$i.gif"
 
-$version = "0.2.2 (alpha)"
+$version = "0.2.3 (alpha)"
 function Check-Command($cmdname)
 {
     return [bool](Get-Command -Name $cmdname -ErrorAction SilentlyContinue)
@@ -19,6 +19,10 @@ if (Check-Command -cmdname 'gif2apng') { } else {
 
 # hell begins here
 Write-Output ''
+try { Get-Item $i -ErrorAction Stop | Out-Null } catch {
+    Write-Host "$i doesn't exist."
+    Break
+}
 $poop = $pwd.Path
 $imagedata = [System.Drawing.Image]::FromFile("$poop\$i")
 $currentwip = $i # store the file name of the latest modified gif so we don't touch older ones
@@ -55,11 +59,10 @@ if ((Get-Item .\$currentwip).length / 1kb -gt 500) {
     $currentwip = "stickerinatorcompressed$o.gif"
 }
 
-Write-Output "`n-----Converting $i to an APNG-----"
-gif2apng $currentwip "$o.png"
+Write-Output "Converting $i to an APNG"
+gif2apng $currentwip "$o.png" | Out-Null
 $oldwip = $currentwip
 $currentwip = "$o.png"
-Write-Output "`n-----Converting $i to an APNG-----"
 
 if ((Get-Item .\$currentwip).length / 1kb -gt 500) {
     if($keepgif -eq $true) {
