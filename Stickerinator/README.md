@@ -1,8 +1,8 @@
 # Stickerinator
 
-The Stickerinator allows you to create Discord-compatible stickers from GIFs.
+The Stickerinator allows you to create Discord-compatible stickers from GIFs and animated WebPs.
 
-Discord's arbitrary limitations are very confusing and hard to remember, and tedious to resolve.
+Discord's arbitrary limitations are very confusing and hard to remember, as well as usually being tedious to resolve.
 
 Please note that quality is not currently considered a priority, as this tool is mainly used by Vukky to create meme stickers.
 
@@ -15,7 +15,7 @@ Please note that quality is not currently considered a priority, as this tool is
 
 ## Usage
 
-No file extensions are required, as the Stickerinator can only create APNGs from GIFs.
+You'll need a file extension (either WebP or GIF) for the `<input_file>`, but not the `<output_file>`.
 
 ```powershell
 ./stickerinator.ps1 -i <input_file> -o <output_file>
@@ -32,3 +32,5 @@ You can set the lossy compression levels like this: `-lossy 125`. By default, th
 ### Dependencies
 
 The Stickerinator requires [Gifsicle](http://www.lcdf.org/gifsicle/) and [gif2apng CLI](https://sourceforge.net/projects/gif2apng/files/) to be in PATH.
+
+If you want to convert animated WebPs, you'll also need [ImageMagick](https://imagemagick.org).

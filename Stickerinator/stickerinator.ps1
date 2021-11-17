@@ -1,7 +1,6 @@
 param ($i, $o, [switch] $keepgif = $false, $lossy = "200", $width = "320")
-$i = "$i.gif"
 
-$version = "0.2.3 (alpha)"
+$version = "0.3.0 (alpha)"
 function Check-Command($cmdname)
 {
     return [bool](Get-Command -Name $cmdname -ErrorAction SilentlyContinue)
@@ -26,6 +25,17 @@ try { Get-Item $i -ErrorAction Stop | Out-Null } catch {
 $poop = $pwd.Path
 $imagedata = [System.Drawing.Image]::FromFile("$poop\$i")
 $currentwip = $i # store the file name of the latest modified gif so we don't touch older ones
+
+# if the file is an animated webp, convert it to a gif first
+if ($i.EndsWith(".webp")) {
+    if (Check-Command -cmdname 'magick') { } else {
+        Write-Error 'Please make sure you have ImageMagick in your PATH.'
+        exit
+    }
+    Write-Output "Converting $i to a GIF"
+    magick mogrify -format gif "$i"
+    $currentwip = $i.Replace(".webp", ".gif")
+}
 
 # resize the gif
 if ($imagedata.width -gt 320 -or $width -ne 320) {
