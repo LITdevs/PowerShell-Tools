@@ -8,7 +8,7 @@ Please note that quality is not currently considered a priority, as this tool is
 
 ## Features
 
-* Converts WEBP to GIF if needed
+* Converts WebP to GIF if needed
 * Resizes GIF if needed (Discord recommends stickers to be 320x320 - note that this may not work)
 * Cuts GIF if needed (Discord stickers must not be longer than 5 seconds)
 * Compresses GIF if needed (Discord stickers must not be above 500 KB)
