@@ -41,10 +41,6 @@ try {
     Add-AppxPackage -Update https://aka.ms/downloadmee
   }
   if ($InstallType -eq "Uninstall") {
-    if(-Not $BypassUninstallConfirm) {
-      pause "Are you SURE you want to uninstall Minecraft: Education Edition?`nYou'll lose all your data in the game!`nPress any key to continue, or close this window."
-      Clear-Host
-    }
     Write-Host "Uninstalling Minecraft: Education Edition... `nAll your Minecraft: Education Edition data on this device is being removed."
     $MCEE = Get-AppxPackage Microsoft.MinecraftEducationEdition
     Remove-AppxPackage -Package $MCEE.PackageFullName
