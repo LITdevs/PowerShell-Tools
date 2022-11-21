@@ -36,8 +36,8 @@ try {
   }
   if ($InstallType -eq "Update") {
     Write-Host "Updating Minecraft: Education Edition... `nThis might take a while. Please be patient."
-    $MCEE = Get-AppxPackage Microsoft.MinecraftEducationEdition
-    Get-AppxPackage $MCEE
+    #$MCEE = Get-AppxPackage Microsoft.MinecraftEducationEdition
+    #Get-AppxPackage $MCEE
     Add-AppxPackage -Update https://aka.ms/downloadmee
   }
   if ($InstallType -eq "Uninstall") {
